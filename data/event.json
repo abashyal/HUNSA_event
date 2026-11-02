@@ -1,6 +1,6 @@
 {
   "eventName": "HUNSA Cultural Night 2025",
-  "currentSegmentId": "seg-2",
+  "currentSegmentId": null,
   "segments": [
     {
       "id": "seg-1",
@@ -12,7 +12,7 @@
       "audioFile": null,
       "introScript": "Please welcome to the stage the President of HUNSA, who will open this wonderful evening.",
       "notes": "Keep it under 5 minutes.",
-      "status": "done",
+      "status": "pending",
       "readinessConfirmed": false
     },
     {
@@ -22,7 +22,7 @@
       "title": "Traditional Dance",
       "groupName": "Nepal Folk Dance Group",
       "duration": 8,
-      "audioFile": null,
+      "audioFile": "1793582912725.mp3",
       "introScript": "Up next, a beautiful traditional folk dance celebrating the rich heritage of Nepal. Please welcome the Nepal Folk Dance Group to the stage!",
       "notes": "5 performers. Need space on left side of stage.",
       "status": "pending",
