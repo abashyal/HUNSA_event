@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 import type { Segment, SegmentType, SegmentStatus } from '../../types/event'
 import useEventStore from '../../store/useEventStore'
 
+async function uploadAudioFile(file: File): Promise<string> {
+  const formData = new FormData()
+  formData.append('audio', file)
+  const res = await fetch('/api/upload', { method: 'POST', body: formData })
+  if (!res.ok) throw new Error('Upload failed')
+  const data = await res.json()
+  return data.filename as string
+}
+
 const typeColors: Record<string, string> = {
   performance: 'bg-purple-700 text-purple-100',
   speech: 'bg-blue-700 text-blue-100',
@@ -51,6 +60,23 @@ export default function PerformanceQueue() {
   const [editForms, setEditForms] = useState<Record<string, FormData>>({})
   const [dragOverId, setDragOverId] = useState<string | null>(null)
   const [draggingId, setDraggingId] = useState<string | null>(null)
+  const [uploadingId, setUploadingId] = useState<string | null>(null)
+
+  const handleAudioUpload = async (segId: string, file: File) => {
+    setUploadingId(segId)
+    try {
+      const filename = await uploadAudioFile(file)
+      updateSegment(segId, { audioFile: filename })
+    } catch {
+      alert('Audio upload failed.')
+    } finally {
+      setUploadingId(null)
+    }
+  }
+
+  const handleAudioRemove = (segId: string) => {
+    updateSegment(segId, { audioFile: null })
+  }
 
   if (!event) return <div className="text-gray-400 p-4">Loading...</div>
 
@@ -250,6 +276,9 @@ export default function PerformanceQueue() {
                   )}
                 </div>
                 <span className="text-xs text-gray-500 flex-shrink-0">{seg.duration}m</span>
+                {seg.audioFile && (
+                  <span className="text-xs flex-shrink-0" title={seg.audioFile}>🎵</span>
+                )}
                 <span
                   className={`px-1.5 py-0.5 rounded text-xs font-medium capitalize flex-shrink-0 ${
                     statusColors[seg.status] || 'bg-gray-600 text-gray-200'
@@ -371,6 +400,54 @@ export default function PerformanceQueue() {
                       }))
                     }
                   />
+                  {/* Audio file */}
+                  <div className="mb-3 border border-gray-600 rounded-lg p-2">
+                    <div className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">
+                      🎵 Audio File
+                    </div>
+                    {seg.audioFile ? (
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-green-400 flex-1 truncate">{seg.audioFile}</span>
+                        <label className="cursor-pointer px-2 py-1 bg-gray-700 hover:bg-gray-600 text-white text-xs rounded transition">
+                          {uploadingId === seg.id ? 'Uploading...' : 'Replace'}
+                          <input
+                            type="file"
+                            accept="audio/*"
+                            className="hidden"
+                            disabled={uploadingId === seg.id}
+                            onChange={(e) => {
+                              const f = e.target.files?.[0]
+                              if (f) handleAudioUpload(seg.id, f)
+                            }}
+                          />
+                        </label>
+                        <button
+                          onClick={() => handleAudioRemove(seg.id)}
+                          className="px-2 py-1 bg-red-800 hover:bg-red-700 text-white text-xs rounded transition"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    ) : (
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <span className="px-3 py-1.5 bg-indigo-700 hover:bg-indigo-600 text-white text-xs rounded transition">
+                          {uploadingId === seg.id ? 'Uploading...' : '+ Upload Audio'}
+                        </span>
+                        <span className="text-xs text-gray-500 italic">No audio file</span>
+                        <input
+                          type="file"
+                          accept="audio/*"
+                          className="hidden"
+                          disabled={uploadingId === seg.id}
+                          onChange={(e) => {
+                            const f = e.target.files?.[0]
+                            if (f) handleAudioUpload(seg.id, f)
+                          }}
+                        />
+                      </label>
+                    )}
+                  </div>
+
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEditSave(seg.id)}

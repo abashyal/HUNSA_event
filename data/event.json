@@ -1,6 +1,6 @@
 {
   "eventName": "HUNSA Cultural Night 2025",
-  "currentSegmentId": null,
+  "currentSegmentId": "seg-2",
   "segments": [
     {
       "id": "seg-1",
@@ -12,7 +12,7 @@
       "audioFile": null,
       "introScript": "Please welcome to the stage the President of HUNSA, who will open this wonderful evening.",
       "notes": "Keep it under 5 minutes.",
-      "status": "pending",
+      "status": "done",
       "readinessConfirmed": false
     },
     {
