@@ -1,0 +1,113 @@
+{
+  "eventName": "HUNSA Cultural Night 2025",
+  "currentSegmentId": null,
+  "segments": [
+    {
+      "id": "seg-1",
+      "order": 1,
+      "type": "speech",
+      "title": "Opening Remarks",
+      "groupName": "HUNSA President",
+      "duration": 5,
+      "audioFile": null,
+      "introScript": "Please welcome to the stage the President of HUNSA, who will open this wonderful evening.",
+      "notes": "Keep it under 5 minutes.",
+      "status": "pending",
+      "readinessConfirmed": false
+    },
+    {
+      "id": "seg-2",
+      "order": 2,
+      "type": "performance",
+      "title": "Traditional Dance",
+      "groupName": "Nepal Folk Dance Group",
+      "duration": 8,
+      "audioFile": null,
+      "introScript": "Up next, a beautiful traditional folk dance celebrating the rich heritage of Nepal. Please welcome the Nepal Folk Dance Group to the stage!",
+      "notes": "5 performers. Need space on left side of stage.",
+      "status": "pending",
+      "readinessConfirmed": false
+    },
+    {
+      "id": "seg-3",
+      "order": 3,
+      "type": "performance",
+      "title": "Modern Fusion",
+      "groupName": "Rhythm Collective",
+      "duration": 6,
+      "audioFile": null,
+      "introScript": "Please welcome the Rhythm Collective with their electrifying modern fusion performance!",
+      "notes": "Audio starts automatically. Check sound levels before.",
+      "status": "pending",
+      "readinessConfirmed": false
+    },
+    {
+      "id": "seg-4",
+      "order": 4,
+      "type": "break",
+      "title": "Intermission",
+      "groupName": "",
+      "duration": 15,
+      "audioFile": null,
+      "introScript": "We will now take a short 15-minute break. Please enjoy the refreshments available in the foyer. We will resume shortly.",
+      "notes": "Crew: reset stage during break. Check mic batteries.",
+      "status": "pending",
+      "readinessConfirmed": false
+    },
+    {
+      "id": "seg-5",
+      "order": 5,
+      "type": "speech",
+      "title": "Guest Speaker",
+      "groupName": "Dr. Anil Sharma",
+      "duration": 10,
+      "audioFile": null,
+      "introScript": "We are truly honoured to welcome our distinguished guest speaker, Dr. Anil Sharma, to the stage.",
+      "notes": "Mic check beforehand. Water on podium.",
+      "status": "pending",
+      "readinessConfirmed": false
+    },
+    {
+      "id": "seg-6",
+      "order": 6,
+      "type": "performance",
+      "title": "Choir Performance",
+      "groupName": "HUNSA Choir",
+      "duration": 12,
+      "audioFile": null,
+      "introScript": "The HUNSA Choir will now perform a moving medley of Nepali songs that will touch your hearts.",
+      "notes": "10 members. Formation: arc shape.",
+      "status": "pending",
+      "readinessConfirmed": false
+    },
+    {
+      "id": "seg-7",
+      "order": 7,
+      "type": "performance",
+      "title": "Drama Skit",
+      "groupName": "Theatre Club",
+      "duration": 15,
+      "audioFile": null,
+      "introScript": "Please welcome the HUNSA Theatre Club for their original drama performance.",
+      "notes": "Props on stage right. Lighting cue at start.",
+      "status": "pending",
+      "readinessConfirmed": false
+    },
+    {
+      "id": "seg-8",
+      "order": 8,
+      "type": "speech",
+      "title": "Closing Ceremony",
+      "groupName": "HUNSA Committee",
+      "duration": 10,
+      "audioFile": null,
+      "introScript": "As we come to the end of this wonderful evening, please join us for the closing ceremony and award presentations.",
+      "notes": "Award presentations included. Thank sponsors.",
+      "status": "pending",
+      "readinessConfirmed": false
+    }
+  ],
+  "announcements": [],
+  "isLive": false,
+  "emergencyStop": false
+}
